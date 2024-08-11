@@ -1,4 +1,4 @@
-/* ----- NAVIGATION BAR FUNCTION ----- */
+/*NAV BAR */
 function myMenuFunction(){
     let menuBtn = document.getElementById("myNavMenu");
   
@@ -9,7 +9,7 @@ function myMenuFunction(){
     }
   }
   
-  /* ----- ADD SHADOW ON NAVIGATION BAR WHILE SCROLLING ----- */
+  /* ADD SHADOW*/
   window.onscroll = function() {headerShadow()};
   
   function headerShadow() {
@@ -30,7 +30,7 @@ function myMenuFunction(){
     }
   }
   
-  /* ----- TYPING EFFECT ----- */
+
   let typingEffect = new Typed(".typedText",{
     strings : ["an Engineer","a Developer"],
     loop : true,
@@ -39,7 +39,7 @@ function myMenuFunction(){
     backDelay : 2000
   })
   
-  /* ----- ## -- SCROLL REVEAL ANIMATION -- ## ----- */
+
   const sr = ScrollReveal({
         origin: 'top',
         distance: '80px',
@@ -47,7 +47,7 @@ function myMenuFunction(){
         reset: true
   })
   
-  /* -- HOME -- */
+  /*HOME*/
   sr.reveal('.featured-text-card',{})
   sr.reveal('.featured-name',{delay: 100})
   sr.reveal('.featured-text-info',{delay: 200})
@@ -55,15 +55,13 @@ function myMenuFunction(){
   sr.reveal('.social_icons',{delay: 200})
   sr.reveal('.featured-image',{delay: 300})
   
-  /* -- PROJECT BOX -- */
+  /*PROJECT BOX*/
   sr.reveal('.project-box',{interval: 200})
   
-  /* -- HEADINGS -- */
   sr.reveal('.top-header',{})
   
-  /* ----- ## -- SCROLL REVEAL LEFT_RIGHT ANIMATION -- ## ----- */
   
-  /* -- ABOUT INFO & CONTACT INFO -- */
+  /*ABOUT INFO & CONTACT INFO*/
   const srLeft = ScrollReveal({
   origin: 'left',
   distance: '80px',
@@ -74,7 +72,7 @@ function myMenuFunction(){
   srLeft.reveal('.about-info',{delay: 100})
   srLeft.reveal('.contact-info',{delay: 100})
   
-  /* -- ABOUT SKILLS & FORM BOX -- */
+  /*FORM*/
   const srRight = ScrollReveal({
   origin: 'right',
   distance: '80px',
@@ -84,8 +82,36 @@ function myMenuFunction(){
   
   srRight.reveal('.skills-box',{delay: 100})
   srRight.reveal('.form-control',{delay: 100})
+
+  function clearForm() {
+    document.getElementById("contactForm").reset();
+}
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault(); // Prevent the default form submission
+
+
+  const formData = new FormData(this);
+
+  fetch(this.action, {
+      method: this.method,
+      body: formData
+  }).then(response => {
+      if (response.ok) {
+          
+          this.reset();
+          alert('Your message has been sent successfully.');
+      } else {
+          alert('There was a problem with your submission.');
+      }
+  }).catch(error => {
+      console.error('Error:', error);
+      alert('An error occurred while submitting the form.');
+  });
+});
+
   
-  /* ----- CHANGE ACTIVE LINK ----- */
+  /*LINK*/
   
   const sections = document.querySelectorAll('section[id]')
   function scrollActive() {
