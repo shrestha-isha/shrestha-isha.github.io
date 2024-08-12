@@ -30,7 +30,6 @@ function myMenuFunction(){
     }
   }
   
-
   let typingEffect = new Typed(".typedText",{
     strings : ["an Engineer","a Developer"],
     loop : true,
@@ -110,9 +109,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   });
 });
 
-  
-  /*LINK*/
-  
+  /*LINK*/  
   const sections = document.querySelectorAll('section[id]')
   function scrollActive() {
   const scrollY = window.scrollY;
